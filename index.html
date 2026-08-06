@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório Geral · RTKB · Iarla Pugliesi · 21/mai a 30/jun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-elevated: #14141c;
+    --bg-card: #1a1a24;
+    --border: #2a2a38;
+    --border-soft: #1f1f2a;
+    --white: #ffffff;
+    --text: #ffffff;
+    --text-soft: #c2c2d0;
+    --text-muted: #7a7a8a;
+    --purple: #8b5cf6;
+    --purple-bright: #a78bfa;
+    --purple-deep: #7c3aed;
+    --purple-soft-bg: rgba(139, 92, 246, 0.12);
+    --purple-border: rgba(139, 92, 246, 0.25);
+    --red: #ef4444;
+    --red-bright: #f87171;
+    --red-soft-bg: rgba(239, 68, 68, 0.12);
+    --red-border: rgba(239, 68, 68, 0.3);
+    --green: #22c55e;
+    --green-bright: #4ade80;
+    --green-soft-bg: rgba(34, 197, 94, 0.12);
+    --green-border: rgba(34, 197, 94, 0.3);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.55; font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px 60px; }
+  header {
+    background: linear-gradient(135deg, #14141c 0%, #1f1530 100%);
+    color: var(--white); padding: 38px 20px; text-align: center;
+    border-bottom: 3px solid var(--purple);
+  }
+  header .brand { font-size: 11px; letter-spacing: 3px; opacity: 0.85; text-transform: uppercase; margin-bottom: 10px; color: var(--purple-bright); font-weight: 500; }
+  header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+  header .subtitle { font-size: 13px; color: var(--purple-bright); font-weight: 500; margin-bottom: 4px; }
+  header .period { font-size: 13px; color: var(--text-soft); font-weight: 300; }
+  h2 {
+    font-size: 17px; text-transform: uppercase; letter-spacing: 1.8px;
+    margin: 44px 0 18px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border); color: var(--white); font-weight: 600; position: relative;
+  }
+  h2::before { content: ''; position: absolute; bottom: -1px; left: 0; width: 60px; height: 1px; background: var(--purple); }
+  h3 { font-size: 14px; font-weight: 600; margin: 22px 0 10px; color: var(--purple-bright); letter-spacing: 0.3px; }
+  p { margin-bottom: 14px; font-size: 14.5px; color: var(--text-soft); font-weight: 300; }
+  p strong { color: var(--white); font-weight: 600; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 22px 0; }
+  .card { background: var(--bg-card); border: 1px solid var(--border); padding: 18px 16px; border-radius: 10px; transition: border-color 0.2s; }
+  .card:hover { border-color: var(--purple-border); }
+  .card .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
+  .card .value { font-size: 22px; font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
+  .card .sub { font-size: 11.5px; color: var(--text-muted); margin-top: 5px; font-weight: 300; }
+  .card.positive { border-left: 3px solid var(--purple); } .card.positive .value { color: var(--purple-bright); }
+  .card.negative { border-left: 3px solid var(--text-muted); } .card.negative .value { color: var(--white); }
+  .card.alert { border-left: 3px solid var(--red); } .card.alert .value { color: var(--red-bright); }
+  .card.win { border-left: 3px solid var(--green); } .card.win .value { color: var(--green-bright); }
+  table {
+    width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px;
+    background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+  }
+  th { background: var(--bg-elevated); color: var(--purple-bright); text-align: left; padding: 12px 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border-soft); color: var(--text-soft); font-weight: 300; }
+  td strong, .strong { font-weight: 600; color: var(--white); }
+  tr:last-child td { border-bottom: none; }
+  tr.total-row td { background: var(--purple-soft-bg); border-top: 2px solid var(--purple); font-weight: 600; color: var(--white); }
+  tr:hover td { background: rgba(139, 92, 246, 0.04); }
+  .right { text-align: right; font-variant-numeric: tabular-nums; }
+  .ok { color: var(--purple-bright); font-weight: 600; }
+  .bad { color: var(--red-bright); font-weight: 600; }
+  .win { color: var(--green-bright); font-weight: 700; }
+  .note { background: var(--purple-soft-bg); border: 1px solid var(--purple-border); border-left: 3px solid var(--purple); padding: 18px 20px; margin: 22px 0; border-radius: 8px; font-size: 14px; color: var(--text-soft); font-weight: 300; }
+  .note strong { display: block; margin-bottom: 6px; color: var(--purple-bright); font-weight: 600; }
+  .note.win { background: var(--green-soft-bg); border-color: var(--green-border); border-left-color: var(--green); }
+  .note.win strong { color: var(--green-bright); }
+  .message { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--purple); padding: 22px 24px; margin: 18px 0; border-radius: 8px; }
+  .message p { font-size: 14.5px; color: var(--text-soft); font-weight: 300; }
+  .message p:last-child { margin-bottom: 0; }
+  .message strong { color: var(--white); font-weight: 600; }
+  .badge { display: inline-block; background: var(--purple); color: var(--white); padding: 3px 10px; border-radius: 12px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; }
+  .badge.gray { background: var(--border); color: var(--text-muted); }
+  .badge.winner { background: var(--green); }
+  .badge.paused { background: var(--red); opacity: 0.55; }
+  footer { text-align: center; margin-top: 60px; padding-top: 26px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 12px; font-weight: 300; }
+  footer strong { color: var(--purple-bright); font-weight: 600; }
+  a { color: var(--purple-bright); }
+  .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .platform-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .platform-card.zouti { border-left: 3px solid var(--text-muted); }
+  .platform-card.kiwify { border-left: 3px solid var(--green); }
+  .platform-name { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .platform-status { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 500; margin-bottom: 14px; }
+  .platform-card.kiwify .platform-name { color: var(--green-bright); }
+  .platform-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .platform-stat { padding: 10px 12px; background: var(--bg-elevated); border-radius: 6px; }
+  .platform-stat .ps-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 500; margin-bottom: 3px; }
+  .platform-stat .ps-value { font-size: 16px; font-weight: 700; color: var(--white); }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 22px; } header { padding: 30px 20px; }
+    h2 { font-size: 15px; } .card .value { font-size: 18px; }
+    table { font-size: 12.5px; } th, td { padding: 9px 10px; }
+    .platform-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Brito Mídias · Gestão de Tráfego</div>
+  <h1>Relatório Geral RTKB — Iarla Pugliesi</h1>
+  <div class="subtitle">Visão consolidada de toda a operação</div>
+  <div class="period">Período: 21 de maio a 30 de junho de 2026 · 40 dias</div>
+</header>
+
+<div class="wrap">
+
+  <h2>Mensagem do Gestor</h2>
+  <div class="message">
+    <p>Iarla, segue o relatório geral consolidando <strong>todo o histórico das campanhas RTKB</strong> desde o início (21/mai) até 30/jun. Considera:</p>
+    <p>• <strong>8 campanhas RTKB</strong> criadas no período (7 rodaram, 1 sem entrega)<br>
+    • <strong>Duas plataformas de vendas usadas</strong> — Zouti (descontinuada) e Kiwify (ativa)<br>
+    • <strong>53 vendas pagas</strong> no total, além de 24 PIX pendentes atualmente<br>
+    • Receita calculada pelo <strong>valor bruto do produto</strong> (R$ 79,90 principal + valores originais dos OBs)</p>
+    <p>A operação ainda está deficitária no acumulado (−R$ 4.373,49) por causa do peso das campanhas iniciais [01]-[05] que tiveram tracking ruim e CPA alto. As duas últimas campanhas ([06] e [07]) já operam próximo do break-even (últimos 7 dias com ROAS 1,02×).</p>
+  </div>
+
+  <h2>Resumo Executivo (Lifetime)</h2>
+  <div class="cards">
+    <div class="card negative"><div class="label">Investimento Meta</div><div class="value">R$ 7.430,37</div><div class="sub">+ R$ 1.027,62 imposto (13,83%)</div></div>
+    <div class="card negative"><div class="label">Custo Total</div><div class="value">R$ 8.457,99</div><div class="sub">Meta + impostos</div></div>
+    <div class="card positive"><div class="label">Receita (valor produto)</div><div class="value">R$ 4.084,50</div><div class="sub">53 vendas pagas</div></div>
+    <div class="card positive"><div class="label">Vendas Pagas</div><div class="value">53</div><div class="sub">Zouti: 23 · Kiwify: 30</div></div>
+    <div class="card alert"><div class="label">Resultado</div><div class="value">−R$ 4.373,49</div><div class="sub">Acumulado 40 dias</div></div>
+    <div class="card alert"><div class="label">ROAS Lifetime</div><div class="value">0,48×</div><div class="sub">Últimos 7d: 1,02× ✅</div></div>
+  </div>
+
+  <h2>Investimento Meta por Mês</h2>
+  <table>
+    <thead><tr><th>Mês</th><th class="right">Dias</th><th class="right">Investimento Meta</th><th class="right">Imposto (13,83%)</th><th class="right">Custo Total</th></tr></thead>
+    <tbody>
+      <tr><td>Maio 2026</td><td class="right">21-31 (11 dias)</td><td class="right">R$ 1.886,55</td><td class="right">R$ 260,91</td><td class="right">R$ 2.147,46</td></tr>
+      <tr><td>Junho 2026</td><td class="right">01-30 (30 dias)</td><td class="right">R$ 5.543,82</td><td class="right">R$ 766,71</td><td class="right">R$ 6.310,53</td></tr>
+      <tr class="total-row"><td><strong>Total</strong></td><td class="right"><strong>40 dias</strong></td><td class="right"><strong>R$ 7.430,37</strong></td><td class="right"><strong>R$ 1.027,62</strong></td><td class="right"><strong>R$ 8.457,99</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <strong>Ritmo de investimento estável</strong>
+    Média diária: R$ 185,76 (Maio) → R$ 184,79 (Junho). O total é parecido, mas a distribuição mudou: em maio, quase todo o gasto foi na [04] COSTCAP com CPA alto. Em junho, o gasto distribuiu melhor entre [06] e [07] com CPA muito mais eficiente.
+  </div>
+
+  <h2>Investimento por Campanha (Todas as RTKB)</h2>
+  <table>
+    <thead><tr><th>Campanha</th><th class="right">Investido</th><th class="right">Vendas</th><th class="right">CPA</th><th class="right">ROAS</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>[00] RTKB Perpétuo (teste inicial)</td><td class="right">R$ 0,00</td><td class="right">0</td><td class="right">—</td><td class="right">—</td><td><span class="badge paused">Sem entrega</span></td></tr>
+      <tr><td>[01] RTKB Perpétuo</td><td class="right">R$ 610,60</td><td class="right bad">0</td><td class="right">∞</td><td class="right bad">0×</td><td><span class="badge paused">Pausada</span></td></tr>
+      <tr><td>[02] RTKB Perpétuo (18-65 anos)</td><td class="right">R$ 168,90</td><td class="right bad">0</td><td class="right">∞</td><td class="right bad">0×</td><td><span class="badge paused">Pausada</span></td></tr>
+      <tr><td>[03] RTKB Perpétuo (teste)</td><td class="right">R$ 128,73</td><td class="right bad">0</td><td class="right">∞</td><td class="right bad">0×</td><td><span class="badge paused">Pausada</span></td></tr>
+      <tr><td class="strong">[04] RTKB Perpétuo COSTCAP</td><td class="right">R$ 3.144,59</td><td class="right">18 + 1 upsell</td><td class="right">R$ 165,50</td><td class="right">0,47×</td><td><span class="badge paused">Pausada</span></td></tr>
+      <tr><td>[05] RTKB Perpétuo</td><td class="right">R$ 672,59</td><td class="right">5</td><td class="right">R$ 134,52</td><td class="right">0,59×</td><td><span class="badge paused">Pausada</span></td></tr>
+      <tr><td class="strong">[06] RTKB PADRÃO V1 (LP antiga)</td><td class="right">R$ 693,75</td><td class="right">10</td><td class="right ok">R$ 69,38</td><td class="right ok">0,95×</td><td><span class="badge paused">Pausada</span></td></tr>
+      <tr><td class="strong">[07] RTKB PADRÃO V2 (LP nova)</td><td class="right">R$ 734,30</td><td class="right win">11</td><td class="right win">R$ 66,75</td><td class="right win">1,10×</td><td><span class="badge winner">Ativa</span></td></tr>
+      <tr class="total-row"><td><strong>Total até 24/jun</strong></td><td class="right"><strong>R$ 6.153,46</strong></td><td class="right"><strong>44 + 1 upsell</strong></td><td class="right"><strong>R$ 139,85</strong></td><td class="right"><strong>0,66×</strong></td><td>—</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px; color:var(--text-muted); margin-top:-6px;"><em>* Total campanhas até 24/jun. Adicional 25-30/jun de R$ 1.276,91 majoritariamente na [07] (com sincronização de atribuição em curso na UTMify).</em></p>
+
+  <h2>Vendas por Plataforma</h2>
+  <p>A operação passou por duas plataformas de checkout — Zouti no início (descontinuada por problemas técnicos isolados nessa conta) e Kiwify (atual).</p>
+
+  <div class="platform-grid">
+    <div class="platform-card zouti">
+      <div class="platform-name">Zouti</div>
+      <div class="platform-status">🔴 Descontinuada · Período ~29/mai–01/jun</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><div class="ps-label">Vendas pagas</div><div class="ps-value">23</div></div>
+        <div class="platform-stat"><div class="ps-label">Receita bruta</div><div class="ps-value">R$ 1.897,50</div></div>
+        <div class="platform-stat"><div class="ps-label">Não pagas</div><div class="ps-value">11</div></div>
+        <div class="platform-stat"><div class="ps-label">Reembolsos</div><div class="ps-value">2</div></div>
+      </div>
+    </div>
+    <div class="platform-card kiwify">
+      <div class="platform-name">Kiwify</div>
+      <div class="platform-status">🟢 Ativa · Período 17/jun–30/jun</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><div class="ps-label">Vendas pagas</div><div class="ps-value">30</div></div>
+        <div class="platform-stat"><div class="ps-label">Receita bruta</div><div class="ps-value">R$ 2.187,00</div></div>
+        <div class="platform-stat"><div class="ps-label">PIX pendentes</div><div class="ps-value">24</div></div>
+        <div class="platform-stat"><div class="ps-label">Reembolsos</div><div class="ps-value">4</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Kiwify vem crescendo consistentemente</strong>
+    Em ~2 semanas, Kiwify já superou o volume total da Zouti (30 vs 23 vendas). E ainda tem <strong>24 PIX pendentes</strong> = potencial de <strong>+R$ 1.727,60</strong> em receita — se recuperar 50% (padrão de mercado), isso adiciona R$ 863,80 no acumulado.
+  </div>
+
+  <h2>Produtos Vendidos (Total Lifetime)</h2>
+  <table>
+    <thead><tr><th>Produto</th><th class="right">Preço unit.</th><th>Plataforma(s)</th><th class="right">Vendas</th><th class="right">Receita bruta</th></tr></thead>
+    <tbody>
+      <tr><td class="strong">Consulta Rating Bancário</td><td class="right">R$ 79,90</td><td>Zouti + Kiwify</td><td class="right strong">50</td><td class="right">R$ 3.995,00</td></tr>
+      <tr><td>Boas Práticas p/ Manter Rating Alto (OB)</td><td class="right">R$ 29,90 / R$ 9,90</td><td>Zouti + Kiwify</td><td class="right">4</td><td class="right">R$ 59,60</td></tr>
+      <tr><td>Como Conquistar o Cartão Black (OB)</td><td class="right">R$ 29,90</td><td>Zouti</td><td class="right">1</td><td class="right">R$ 29,90</td></tr>
+      <tr class="total-row"><td><strong>Total</strong></td><td class="right">—</td><td>—</td><td class="right"><strong>55 itens em 53 pedidos</strong></td><td class="right"><strong>R$ 4.084,50</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <strong>Order bumps subaproveitados</strong>
+    Take rate de order bumps: 5 em 53 pedidos = <strong>9,4%</strong> (o ideal seria 20-30%). O OB "Boas Práticas" mudou de R$ 29,90 (Zouti) para R$ 9,90 (Kiwify) — preço mais baixo pode explicar em parte, mas a taxa ainda tem espaço. Vale testar posicionamento e copy do OB no checkout.
+  </div>
+
+  <h2>Resultado Consolidado</h2>
+  <table>
+    <tbody>
+      <tr><td>Receita bruta (Zouti + Kiwify)</td><td class="right">R$ 4.084,50</td></tr>
+      <tr><td>Investimento Meta</td><td class="right">−R$ 7.430,37</td></tr>
+      <tr><td>Imposto Meta (13,83%)</td><td class="right">−R$ 1.027,62</td></tr>
+      <tr class="total-row"><td><strong>RESULTADO ACUMULADO</strong></td><td class="right strong bad">−R$ 4.373,49</td></tr>
+      <tr><td>ROAS lifetime</td><td class="right">0,48×</td></tr>
+      <tr><td>ROAS últimos 7 dias (18-24/jun)</td><td class="right ok">1,02×</td></tr>
+      <tr><td>CPA médio lifetime</td><td class="right">R$ 159,58</td></tr>
+      <tr><td>CPA médio últimos 7 dias</td><td class="right ok">R$ 68,20</td></tr>
+      <tr><td>Ticket médio (receita/venda)</td><td class="right">R$ 77,07</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note win">
+    <strong>Tendência de melhora clara</strong>
+    ROAS lifetime está em 0,48×, mas dos últimos 7 dias já é 1,02× (operação positiva). CPA caiu de R$ 159 (média) pra R$ 68 (recente). A parte deficitária vem principalmente do "período de aprendizado" das campanhas [01]-[05] — que hoje já não estão rodando. A operação atual é sustentável.
+  </div>
+
+  <h2>Status Atual da Operação</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Situação</th></tr></thead>
+    <tbody>
+      <tr><td>Campanhas rodando</td><td>Apenas <span class="badge winner">[07] RTKB PADRÃO V2</span> · CPA R$ 66,75 · ROAS 1,10×</td></tr>
+      <tr><td>Plataforma de checkout</td><td>Kiwify (Zouti descontinuada)</td></tr>
+      <tr><td>Página de vendas ativa</td><td><a href="https://realplancredito.com/rating-bancario-v2/" target="_blank" rel="noopener">LP V2 (versão direta)</a> · Conv. LP→Venda 6,18%</td></tr>
+      <tr><td>Criativo top (eficiência)</td><td><strong>ADV06 + LP V2</strong> · CPA R$ 20,82 · ROAS 2,72×</td></tr>
+      <tr><td>Criativo de volume</td><td>ADV07 · ~90% das vendas · CPA ~R$ 65-70</td></tr>
+      <tr><td>Conta Meta</td><td><span class="badge winner">Ativa</span> · Sem pendências de pagamento</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Análise Estratégica</h2>
+  <div class="message">
+    <p><strong>1. Fase inicial (21/mai a 16/jun) foi cara.</strong> Campanhas [01]-[05] gastaram R$ 4.725,41 para 24 vendas + 1 upsell. Boa parte foi custo de aprendizagem — problemas de tracking Zouti, testes de público, iterações de LP.</p>
+    <p><strong>2. Reset em 17/jun deu certo.</strong> Ao criar [06] e [07] com nova estrutura + Kiwify + LP V2, o CPA caiu de R$ 165 pra R$ 68 (60% menor). ROAS mais que dobrou.</p>
+    <p><strong>3. LP V2 é o divisor de águas.</strong> Conversão LP→Venda de 6,18% (vs 3,21% da V1). Manter só a V2.</p>
+    <p><strong>4. Order bumps ainda subaproveitados.</strong> 9,4% de take rate está muito abaixo do potencial (20-30% ideal). Dinheiro em cima da mesa.</p>
+    <p><strong>5. 24 PIX pendentes (R$ 1.727,60) é a alavanca de curto prazo.</strong> Recuperação automática via WhatsApp (30min/2h/24h) pode capturar de 40-60% desse valor sem gastar mais em tráfego.</p>
+  </div>
+
+  <h2>Próximos Passos</h2>
+  <table>
+    <thead><tr><th>#</th><th>Ação</th><th>Impacto esperado</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="strong">Recuperação PIX automática (WhatsApp 30min/2h/24h)</td><td>+R$ 863 no próximo ciclo</td></tr>
+      <tr><td>2</td><td class="strong">Escalar budget da [07] LP V2 gradualmente (+20%/semana)</td><td>Mais vendas mantendo CPA</td></tr>
+      <tr><td>3</td><td class="strong">Testar order bumps novos / reajustar preço</td><td>Subir take rate de 9% pra 20%+</td></tr>
+      <tr><td>4</td><td>Produzir nova leva de criativos (ADV06 + ADV07 variações)</td><td>Refresh de audiência, resistir fatigue</td></tr>
+      <tr><td>5</td><td>Continuar monitorando conversão LP V2 (alvo: manter ≥ 6%)</td><td>Estabilidade do funil</td></tr>
+      <tr><td>6</td><td>Avaliar Avatar IA (HeyGen R$ 30-40/vídeo)</td><td>Acelerar produção sem gravar</td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+    Relatório geral consolidado gerado em <strong>30 de junho de 2026</strong> · Brito Mídias<br>
+    Gestão de Tráfego Pago · Conta Meta: 944689576621206<br>
+    Período: 21 de maio a 30 de junho de 2026 (lifetime) · Plataformas: Zouti (desc.) + Kiwify (ativa)
+  </footer>
+
+</div>
+</body>
+</html>
