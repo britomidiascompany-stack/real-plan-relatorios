@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório Geral · Iarla Pugliesi · RTKB · 17 jun a 18 ago 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --roxo:#7C3AED; --roxo-dark:#5B21B6; --roxo-deep:#3B0F73; --roxo-light:#A78BFA; --roxo-xlight:#EDE9FE;
+  --preto:#0A0A0A; --ink:#141018; --cinza:#5B5566; --linha:#E7E3EE; --bg:#FFFFFF; --bg-soft:#FAF9FC;
+  --verde:#0E9F6E; --verde-bg:#E7F6EF; --vermelho:#E02424; --vermelho-bg:#FCE8E8; --amber:#B45309; --amber-bg:#FEF3E2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;font-weight:300;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+h1,h2,h3,b,strong{font-weight:700}
+a{color:var(--roxo-dark);text-decoration:none}
+.cr{color:var(--roxo-dark);font-weight:600;border-bottom:1px dashed var(--roxo-light);white-space:nowrap}
+.cr:hover{color:var(--roxo);border-bottom-color:var(--roxo)}
+.cr::after{content:"↗";font-size:.72em;margin-left:2px;vertical-align:super;opacity:.6}
+
+.hero{position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(1100px 500px at 78% -10%, rgba(124,58,237,.55), transparent 60%),
+             linear-gradient(150deg,#0A0A0A 0%,#17111F 45%,#3B0F73 100%);}
+.hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(700px 380px at 70% 0%,#000,transparent 75%);
+  mask-image:radial-gradient(700px 380px at 70% 0%,#000,transparent 75%);opacity:.5}
+.hero .wrap{position:relative;padding:36px 28px 60px}
+.brand{display:flex;align-items:center;gap:16px}
+.brand svg{width:46px;height:46px}
+.brand .word{display:flex;align-items:center;gap:13px;font-weight:300}
+.brand .word b{font-weight:800;font-size:20px;letter-spacing:.02em}
+.brand .word .bar{width:2px;height:30px;background:rgba(255,255,255,.55)}
+.brand .word span{font-size:20px;letter-spacing:.22em}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-top:40px}
+.hero h1 .accent{color:var(--roxo-light)}
+.hero .sub{font-weight:300;font-size:18px;color:#D9D3E6;margin-top:14px;max-width:660px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pill{border:1px solid var(--roxo-light);color:#EDE9FE;border-radius:100px;padding:7px 15px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.pill.solid{background:linear-gradient(90deg,#7C3AED,#5B21B6);border-color:transparent;color:#fff}
+
+section{padding:56px 0;border-bottom:1px solid var(--linha)}
+section.soft{background:var(--bg-soft)}
+.section-label{display:flex;align-items:center;gap:12px;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--roxo)}
+.section-label::before{content:"";width:34px;height:2px;background:var(--roxo);border-radius:2px}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:700;margin-top:14px;letter-spacing:-.01em}
+.intro{color:var(--cinza);margin-top:12px;max-width:740px;font-size:16px}
+
+.grid{display:grid;gap:16px;margin-top:30px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--linha);border-radius:16px;padding:20px;background:#fff}
+.card small{color:var(--roxo);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:block}
+.card .num{font-size:30px;font-weight:700;letter-spacing:-.01em;margin-top:8px;line-height:1}
+.card .foot{font-size:12.5px;color:var(--cinza);margin-top:8px}
+.card.hi{background:linear-gradient(135deg,#5B21B6 0%,#7C3AED 100%);border-color:transparent;color:#fff}
+.card.hi small{color:#E9DEFF}.card.hi .foot{color:#E9DEFF}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;letter-spacing:.02em}
+.tag.red{background:var(--vermelho-bg);color:var(--vermelho)}
+.tag.amber{background:var(--amber-bg);color:var(--amber)}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:24px;font-size:14.5px;overflow:hidden;border-radius:14px;border:1px solid var(--linha)}
+.tbl th{background:var(--bg-soft);text-align:left;padding:13px 14px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cinza);border-bottom:1px solid var(--linha)}
+.tbl td{padding:13px 14px;border-bottom:1px solid var(--linha);font-weight:300}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td b{font-weight:600}
+.tbl .r{text-align:right;font-variant-numeric:tabular-nums}
+.tbl tr.win td{background:#FBF9FF}
+.tbl tr.tot td{background:#F3EEFB;font-weight:600}
+.scroll{overflow-x:auto}
+
+.chart{display:flex;align-items:flex-end;gap:40px;margin-top:28px;height:200px;padding:0 10px;max-width:560px}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%;justify-content:flex-end}
+.bar .b{width:100%;max-width:90px;background:linear-gradient(180deg,#A78BFA,#7C3AED);border-radius:8px 8px 3px 3px;min-height:3px}
+.bar .v{font-size:15px;font-weight:700;color:var(--roxo-dark)}
+.bar .d{font-size:12px;color:var(--cinza);text-align:center}
+
+.reads{margin-top:26px;display:grid;gap:14px}
+.read{display:flex;gap:14px;padding:18px 20px;border:1px solid var(--linha);border-radius:14px;background:#fff}
+.read .ic{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px;font-weight:700}
+.read.up .ic{background:var(--verde-bg);color:var(--verde)}
+.read.warn .ic{background:var(--amber-bg);color:var(--amber)}
+.read.act .ic{background:var(--roxo-xlight);color:var(--roxo-dark)}
+.read h4{font-size:15.5px;font-weight:600}
+.read p{font-size:14px;color:var(--cinza);margin-top:3px}
+
+footer{background:var(--ink);color:#CFC9DA;padding:44px 0 40px}
+footer .brand .word b,footer .brand .word span{color:#fff}
+footer .brand .word .bar{background:rgba(255,255,255,.5)}
+footer p{font-size:13px;margin-top:16px;color:#9A93AC}
+footer .disc{margin-top:14px;font-size:12px;color:#6f6880;max-width:800px;line-height:1.5}
+
+.note{font-size:12.5px;color:var(--cinza);margin-top:14px}
+@media(max-width:820px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}.hero .sub{font-size:16px}}
+@media(max-width:520px){.g4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-label="BM Mídias">
+        <polygon points="50,4 90,27 90,73 50,96 10,73 10,27"></polygon>
+        <polygon points="50,33 65,59 35,59"></polygon>
+        <line x1="50" y1="4" x2="50" y2="33"></line><line x1="90" y1="73" x2="65" y2="59"></line>
+        <line x1="10" y1="73" x2="35" y2="59"></line><line x1="90" y1="27" x2="50" y2="33"></line>
+        <line x1="90" y1="27" x2="65" y2="59"></line><line x1="50" y1="96" x2="65" y2="59"></line>
+        <line x1="50" y1="96" x2="35" y2="59"></line><line x1="10" y1="27" x2="35" y2="59"></line>
+        <line x1="10" y1="27" x2="50" y2="33"></line>
+      </svg>
+      <span class="word"><b>BM</b><i class="bar"></i><span>MÍDIAS</span></span>
+    </div>
+
+    <h1>Relatório Geral<br><span class="accent">Iarla Pugliesi · Real Plan</span></h1>
+    <p class="sub">Venda direta perpétua — Consulta Rating Bancário (RTKB). Visão consolidada de <b style="color:#fff">toda a campanha: 17 de junho a 18 de agosto de 2026</b> (desde a 1ª venda).</p>
+    <div class="pills">
+      <span class="pill solid">17 JUN – 18 AGO 2026</span>
+      <span class="pill">Meta Ads + 13,83% (custo real)</span>
+      <span class="pill">Vendas: Kiwify</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Mensagem do gestor</div>
+    <h2>Visão geral da campanha</h2>
+    <p class="intro">Da primeira venda (17/06) até hoje, a campanha investiu <b>R$ 15.804,19</b> (custo real, já com a taxa de 13,83% sobre o Meta) e gerou <b>119 vendas aprovadas</b> do produto principal (+ 29 order bumps), somando <b>R$ 10.082,18</b> de retorno bruto — <b>ROAS geral de 0,64</b>. É uma operação de <b>captação de topo</b>: o produto de entrada (R$ 79,90) não fecha positivo no tráfego isolado — cada venda é um cliente novo na base para o back-end (time comercial) monetizar. O ponto de atenção estratégico: a <b>eficiência vem caindo mês a mês</b> (ROAS 0,71 em junho → 0,58 em agosto), sinal de <b>fadiga de criativo</b> — a operação ainda depende de dois anúncios (<a class="cr" href="https://drive.google.com/file/d/10bQNUfmtQ8XYngRhrdt9WBF5iHc53eqN/view" target="_blank" rel="noopener">ADV07</a> + <a class="cr" href="https://drive.google.com/file/d/11rQ9H9Dobq0sS68JRREt9DiEiNwi27DT/view" target="_blank" rel="noopener">ADV06</a>, que somam 92% das vendas) e a renovação ainda não produziu um substituto.</p>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="section-label">Visão consolidada — lifetime</div>
+    <h2>Números de toda a campanha</h2>
+    <p class="intro">Vendas apuradas <b>direto da planilha Kiwify</b> (só aprovadas; retorno = valor bruto). Investimento <b>direto do Meta Ads</b>, acrescido de <b>13,83%</b> para refletir o <b>custo real</b> (impostos/taxas sobre a mídia).</p>
+
+    <div class="grid g4">
+      <div class="card"><small>Investimento (custo real)</small><div class="num">R$ 15.804</div><div class="foot">Meta R$ 13.884 + 13,83% (R$ 1.920)</div></div>
+      <div class="card"><small>Vendas aprovadas</small><div class="num">119</div><div class="foot">Consulta Rating (produto principal)</div></div>
+      <div class="card"><small>Retorno bruto</small><div class="num">R$ 10.082</div><div class="foot">+ 29 order bumps (R$ 516,30)</div></div>
+      <div class="card hi"><small>ROAS (custo real)</small><div class="num">0,64</div><div class="foot">0,73 sobre o Meta bruto</div></div>
+    </div>
+    <div class="grid g4" style="margin-top:16px">
+      <div class="card"><small>CPA (custo real)</small><div class="num">R$ 132,81</div><div class="foot">custo por venda aprovada</div></div>
+      <div class="card"><small>Ticket médio</small><div class="num">R$ 79,90</div><div class="foot">produto de entrada</div></div>
+      <div class="card"><small>Resultado (tráfego)</small><div class="num" style="color:var(--vermelho)">− R$ 5.722</div><div class="foot"><span class="tag red">antes do back-end</span></div></div>
+      <div class="card"><small>Meio de pagamento</small><div class="num">91% PIX</div><div class="foot">108 PIX · 11 cartão</div></div>
+    </div>
+    <p class="note">Funil total dos anúncios: <b>6.370 cliques</b> → <b>3.323 visitas à página</b> → <b>676 checkouts iniciados</b> → <b>119 vendas</b>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Evolução</div>
+    <h2>Desempenho mês a mês</h2>
+    <p class="intro">Investimento em <b>custo real</b> (Meta + 13,83%). Junho e agosto são meses parciais (campanha começou em 17/06; agosto vai até o dia 18).</p>
+
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Mês</th><th class="r">Investimento (real)</th><th class="r">Vendas</th><th class="r">Retorno bruto</th><th class="r">ROAS</th></tr></thead>
+      <tbody>
+        <tr><td>Junho (17–30)</td><td class="r">R$ 3.080,25</td><td class="r">27</td><td class="r">R$ 2.187,00</td><td class="r"><b>0,71</b></td></tr>
+        <tr><td>Julho (01–31)</td><td class="r">R$ 6.955,02</td><td class="r">55</td><td class="r">R$ 4.572,22</td><td class="r"><b>0,66</b></td></tr>
+        <tr><td>Agosto (01–18)</td><td class="r">R$ 5.768,92</td><td class="r">37</td><td class="r">R$ 3.322,96</td><td class="r"><b>0,58</b></td></tr>
+        <tr class="tot"><td>Total lifetime</td><td class="r">R$ 15.804,19</td><td class="r">119</td><td class="r">R$ 10.082,18</td><td class="r">0,64</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 style="margin-top:34px;font-size:17px;font-weight:600">Vendas por mês</h3>
+    <div class="chart">
+      <div class="bar"><div class="b" style="height:49%"></div><div class="v">27</div><div class="d">Jun<br>(17–30)</div></div>
+      <div class="bar"><div class="b" style="height:100%"></div><div class="v">55</div><div class="d">Jul</div></div>
+      <div class="bar"><div class="b" style="height:67%"></div><div class="v">37</div><div class="d">Ago<br>(01–18)</div></div>
+    </div>
+    <p class="note">O ROAS caiu de <b>0,71 (jun) → 0,66 (jul) → 0,58 (ago)</b> — curva típica de <b>fadiga de criativo</b>: o mesmo público vê os mesmos anúncios e o custo por venda sobe.</p>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="section-label">Vendas</div>
+    <h2>Produto principal, bumps e outros status</h2>
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Produto</th><th>Tipo</th><th class="r">Qtd aprovada</th><th class="r">Retorno bruto</th></tr></thead>
+      <tbody>
+        <tr class="win"><td><b>Consulta Rating Bancário</b></td><td>Produto principal</td><td class="r"><b>119</b></td><td class="r"><b>R$ 9.565,88</b></td></tr>
+        <tr><td>Order bumps (Boas Práticas 15 · Cartão Black 7 · Cartão negativado 4 · Limite Nubank 3)</td><td>Order bump</td><td class="r">29</td><td class="r">R$ 516,30</td></tr>
+        <tr class="tot"><td colspan="2">Total aprovado (retorno)</td><td class="r">148 itens</td><td class="r">R$ 10.082,18</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card"><small>Aguardando pagamento</small><div class="num">59</div><div class="foot">R$ 3.904,10 em aberto — <span class="tag amber">potencial de recuperação</span></div></div>
+      <div class="card"><small>Recusadas (cartão)</small><div class="num">15</div><div class="foot">R$ 1.261,92 — atrito no checkout</div></div>
+      <div class="card"><small>Reembolsadas</small><div class="num">7</div><div class="foot">R$ 564,94</div></div>
+    </div>
+    <p class="note">Destaque: <b>R$ 3.904 em pedidos PIX aguardando pagamento</b> — a maior alavanca de curto prazo é uma régua de recuperação pra converter parte disso em receita já rastreada.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Criativos</div>
+    <h2>O que sustentou a campanha</h2>
+    <p class="intro">Investimento por criativo em <b>custo real</b> (com os 13,83%), cruzado com as vendas atribuídas na Kiwify. Clique no nome para abrir o vídeo no Drive.</p>
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Criativo</th><th>Ângulo</th><th class="r">Invest. (real)</th><th class="r">Vendas</th><th class="r">Retorno</th><th class="r">ROAS</th></tr></thead>
+      <tbody>
+        <tr class="win"><td><a class="cr" href="https://drive.google.com/file/d/10bQNUfmtQ8XYngRhrdt9WBF5iHc53eqN/view" target="_blank" rel="noopener">ADV07</a></td><td>Como saber seu rating bancário</td><td class="r">R$ 10.634,47</td><td class="r"><b>79</b></td><td class="r">R$ 6.312,10</td><td class="r"><b>0,59</b></td></tr>
+        <tr class="win"><td><a class="cr" href="https://drive.google.com/file/d/11rQ9H9Dobq0sS68JRREt9DiEiNwi27DT/view" target="_blank" rel="noopener">ADV06</a></td><td>Porque financiamento reprovado</td><td class="r">R$ 4.121,02</td><td class="r"><b>30</b></td><td class="r">R$ 2.397,00</td><td class="r"><b>0,58</b></td></tr>
+        <tr><td>Outros criativos (ADV01–05, ADV08–17)</td><td>Testes / ângulos secundários</td><td class="r">R$ 1.048,70</td><td class="r">0</td><td class="r">—</td><td class="r">—</td></tr>
+        <tr><td colspan="3" style="color:var(--cinza)">Vendas sem atribuição limpa de UTM</td><td class="r">10</td><td class="r">R$ 799,00</td><td class="r">—</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note"><b>ADV07 sozinho respondeu por 79 das 119 vendas (66%).</b> Nenhum dos criativos de teste (incluindo a leva nova ADV13–ADV17) conseguiu venda atribuída — a dependência de 1–2 criativos é o principal risco da operação.</p>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="section-label">Leitura &amp; próximos passos</div>
+    <h2>Conclusões da campanha até aqui</h2>
+    <div class="reads">
+      <div class="read warn"><div class="ic">🎬</div><div><h4>Renovação de criativo é a prioridade nº 1</h4><p>A eficiência cai mês a mês por fadiga, e 66% das vendas vêm de um único anúncio. Produzir uma nova leva de criativos (ângulos e formatos diferentes) e testar com verba decisiva é o que destrava mais escala com CPA saudável.</p></div></div>
+      <div class="read act"><div class="ic">⟳</div><div><h4>Recuperar os R$ 3.904 em PIX pendente</h4><p>59 pedidos aguardando pagamento. Uma régua de recuperação (WhatsApp/e-mail) é a alavanca de receita mais rápida e barata — não custa mídia.</p></div></div>
+      <div class="read up"><div class="ic">↑</div><div><h4>Order bump validado — escalar a esteira</h4><p>29 bumps no lifetime. Testar novos bumps e a ordem no checkout aumenta o ticket médio sem custo de mídia — melhora o ROAS na veia.</p></div></div>
+      <div class="read act"><div class="ic">₪</div><div><h4>Medir o resultado real: back-end</h4><p>Este relatório mede só o tráfego (front-end de R$ 79,90). O ROI verdadeiro da operação é a conversão desses 119 clientes no produto principal pelo time comercial. Próximo passo: cruzar com o faturamento de back-end para o ROAS real do negócio.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-label="BM Mídias">
+        <polygon points="50,4 90,27 90,73 50,96 10,73 10,27"></polygon>
+        <polygon points="50,33 65,59 35,59"></polygon>
+        <line x1="50" y1="4" x2="50" y2="33"></line><line x1="90" y1="73" x2="65" y2="59"></line>
+        <line x1="10" y1="73" x2="35" y2="59"></line><line x1="90" y1="27" x2="50" y2="33"></line>
+        <line x1="90" y1="27" x2="65" y2="59"></line><line x1="50" y1="96" x2="65" y2="59"></line>
+        <line x1="50" y1="96" x2="35" y2="59"></line><line x1="10" y1="27" x2="35" y2="59"></line>
+        <line x1="10" y1="27" x2="50" y2="33"></line>
+      </svg>
+      <span class="word"><b>BM</b><i class="bar"></i><span>MÍDIAS</span></span>
+    </div>
+    <p>Central de Estratégia e Resultados · Gestão de Tráfego Pago · rafael@britomidias.com.br</p>
+    <p class="disc">Relatório geral gerado em 18/08/2026, 16:44. Período: 17/06 (1ª venda) a 18/08/2026. Vendas apuradas direto da planilha Kiwify (Iarla Pugliesi), somente pedidos aprovados, valor bruto como retorno. Investimento apurado direto do Meta Ads (conta CA - Anunciante - Iarla Pugliesi), acrescido de 13,83% para refletir o custo real (impostos/taxas sobre a mídia): Meta R$ 13.884,03 + R$ 1.920,16 = R$ 15.804,19. ROAS e CPA calculados sobre o custo real.</p>
+  </div>
+</footer>
+
+</body>
+</html>
