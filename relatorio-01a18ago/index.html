@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Campanha · Iarla Pugliesi · RTKB · 01–18 ago 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --roxo:#7C3AED; --roxo-dark:#5B21B6; --roxo-deep:#3B0F73; --roxo-light:#A78BFA; --roxo-xlight:#EDE9FE;
+  --preto:#0A0A0A; --ink:#141018; --cinza:#5B5566; --linha:#E7E3EE; --bg:#FFFFFF; --bg-soft:#FAF9FC;
+  --verde:#0E9F6E; --verde-bg:#E7F6EF; --vermelho:#E02424; --vermelho-bg:#FCE8E8; --amber:#B45309; --amber-bg:#FEF3E2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;font-weight:300;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+h1,h2,h3,b,strong{font-weight:700}
+a{color:var(--roxo-dark);text-decoration:none}
+.cr{color:var(--roxo-dark);font-weight:600;border-bottom:1px dashed var(--roxo-light);white-space:nowrap}
+.cr:hover{color:var(--roxo);border-bottom-color:var(--roxo)}
+.cr::after{content:"↗";font-size:.72em;margin-left:2px;vertical-align:super;opacity:.6}
+
+.hero{position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(1100px 500px at 78% -10%, rgba(124,58,237,.55), transparent 60%),
+             linear-gradient(150deg,#0A0A0A 0%,#17111F 45%,#3B0F73 100%);}
+.hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(700px 380px at 70% 0%,#000,transparent 75%);
+  mask-image:radial-gradient(700px 380px at 70% 0%,#000,transparent 75%);opacity:.5}
+.hero .wrap{position:relative;padding:36px 28px 60px}
+.brand{display:flex;align-items:center;gap:16px}
+.brand svg{width:46px;height:46px}
+.brand .word{display:flex;align-items:center;gap:13px;font-weight:300}
+.brand .word b{font-weight:800;font-size:20px;letter-spacing:.02em}
+.brand .word .bar{width:2px;height:30px;background:rgba(255,255,255,.55)}
+.brand .word span{font-size:20px;letter-spacing:.22em}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-top:40px}
+.hero h1 .accent{color:var(--roxo-light)}
+.hero .sub{font-weight:300;font-size:18px;color:#D9D3E6;margin-top:14px;max-width:640px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pill{border:1px solid var(--roxo-light);color:#EDE9FE;border-radius:100px;padding:7px 15px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.pill.solid{background:linear-gradient(90deg,#7C3AED,#5B21B6);border-color:transparent;color:#fff}
+.pill.ok{border-color:#6FCF97;color:#CFF5DF}
+
+section{padding:56px 0;border-bottom:1px solid var(--linha)}
+section.soft{background:var(--bg-soft)}
+.section-label{display:flex;align-items:center;gap:12px;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--roxo)}
+.section-label::before{content:"";width:34px;height:2px;background:var(--roxo);border-radius:2px}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:700;margin-top:14px;letter-spacing:-.01em}
+.intro{color:var(--cinza);margin-top:12px;max-width:730px;font-size:16px}
+
+.alert{display:flex;gap:16px;margin-top:26px;padding:22px 24px;border-radius:16px;border:1px solid #C9E7D6;background:linear-gradient(180deg,#F1FBF5,#fff)}
+.alert .ic{flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:var(--verde-bg);color:var(--verde);display:grid;place-items:center;font-size:22px}
+.alert h3{font-size:18px;font-weight:700;color:#0B7A54}
+.alert p{font-size:14.5px;color:#33614E;margin-top:5px}
+.alert p b{color:#0B7A54}
+
+.grid{display:grid;gap:16px;margin-top:30px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--linha);border-radius:16px;padding:20px;background:#fff}
+.card small{color:var(--roxo);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:block}
+.card .num{font-size:30px;font-weight:700;letter-spacing:-.01em;margin-top:8px;line-height:1}
+.card .foot{font-size:12.5px;color:var(--cinza);margin-top:8px}
+.card.hi{background:linear-gradient(135deg,#5B21B6 0%,#7C3AED 100%);border-color:transparent;color:#fff}
+.card.hi small{color:#E9DEFF}.card.hi .foot{color:#E9DEFF}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;letter-spacing:.02em}
+.tag.red{background:var(--vermelho-bg);color:var(--vermelho)}
+.tag.amber{background:var(--amber-bg);color:var(--amber)}
+.tag.green{background:var(--verde-bg);color:var(--verde)}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:24px;font-size:14.5px;overflow:hidden;border-radius:14px;border:1px solid var(--linha)}
+.tbl th{background:var(--bg-soft);text-align:left;padding:13px 14px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cinza);border-bottom:1px solid var(--linha)}
+.tbl td{padding:13px 14px;border-bottom:1px solid var(--linha);font-weight:300}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td b{font-weight:600}
+.tbl .r{text-align:right;font-variant-numeric:tabular-nums}
+.tbl tr.win td{background:#FBF9FF}
+.tbl tr.new td{background:#F6F4FB}
+.scroll{overflow-x:auto}
+
+.chart{display:flex;align-items:flex-end;gap:5px;margin-top:28px;height:180px;padding:0 2px}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.bar .b{width:100%;max-width:28px;background:linear-gradient(180deg,#A78BFA,#7C3AED);border-radius:5px 5px 2px 2px;min-height:3px}
+.bar .v{font-size:10px;font-weight:600;color:var(--roxo-dark)}
+.bar .d{font-size:9px;color:var(--cinza)}
+
+.reads{margin-top:26px;display:grid;gap:14px}
+.read{display:flex;gap:14px;padding:18px 20px;border:1px solid var(--linha);border-radius:14px;background:#fff}
+.read .ic{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px;font-weight:700}
+.read.up .ic{background:var(--verde-bg);color:var(--verde)}
+.read.warn .ic{background:var(--amber-bg);color:var(--amber)}
+.read.act .ic{background:var(--roxo-xlight);color:var(--roxo-dark)}
+.read h4{font-size:15.5px;font-weight:600}
+.read p{font-size:14px;color:var(--cinza);margin-top:3px}
+
+.crea{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.crea .box{border:1px solid var(--linha);border-radius:16px;padding:22px;background:#fff}
+.crea .box.top{border-color:var(--roxo-light);background:linear-gradient(180deg,#FBF9FF,#fff)}
+.crea .rank{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--roxo)}
+.crea h4{font-size:19px;font-weight:700;margin-top:6px}
+.crea .ang{font-size:13.5px;color:var(--cinza);margin-top:2px}
+.crea .mrow{display:flex;gap:22px;margin-top:16px;flex-wrap:wrap}
+.crea .mrow div small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cinza)}
+.crea .mrow div b{font-size:19px;font-weight:700}
+
+footer{background:var(--ink);color:#CFC9DA;padding:44px 0 40px}
+footer .brand .word b,footer .brand .word span{color:#fff}
+footer .brand .word .bar{background:rgba(255,255,255,.5)}
+footer p{font-size:13px;margin-top:16px;color:#9A93AC}
+footer .disc{margin-top:14px;font-size:12px;color:#6f6880;max-width:760px;line-height:1.5}
+
+.note{font-size:12.5px;color:var(--cinza);margin-top:14px}
+@media(max-width:820px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}.crea{grid-template-columns:1fr}.hero .sub{font-size:16px}.bar .v{display:none}}
+@media(max-width:520px){.g4{grid-template-columns:1fr}.chart{height:150px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-label="BM Mídias">
+        <polygon points="50,4 90,27 90,73 50,96 10,73 10,27"></polygon>
+        <polygon points="50,33 65,59 35,59"></polygon>
+        <line x1="50" y1="4" x2="50" y2="33"></line><line x1="90" y1="73" x2="65" y2="59"></line>
+        <line x1="10" y1="73" x2="35" y2="59"></line><line x1="90" y1="27" x2="50" y2="33"></line>
+        <line x1="90" y1="27" x2="65" y2="59"></line><line x1="50" y1="96" x2="65" y2="59"></line>
+        <line x1="50" y1="96" x2="35" y2="59"></line><line x1="10" y1="27" x2="35" y2="59"></line>
+        <line x1="10" y1="27" x2="50" y2="33"></line>
+      </svg>
+      <span class="word"><b>BM</b><i class="bar"></i><span>MÍDIAS</span></span>
+    </div>
+
+    <h1>Relatório de Campanha<br><span class="accent">Iarla Pugliesi · Real Plan</span></h1>
+    <p class="sub">Venda direta perpétua — Consulta Rating Bancário (RTKB). Desempenho de tráfego pago e vendas no período de <b style="color:#fff">01 a 18 de agosto de 2026</b> (parcial).</p>
+    <div class="pills">
+      <span class="pill solid">01–18 AGO 2026</span>
+      <span class="pill">Meta Ads</span>
+      <span class="pill">Vendas: Kiwify</span>
+      <span class="pill ok">ROAS em recuperação</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Mensagem do gestor</div>
+    <h2>Leitura rápida do período</h2>
+    <p class="intro">No mês (parcial), a campanha investiu <b>R$ 5.068,01</b> e gerou <b>37 vendas aprovadas</b> do produto principal (+ 18 order bumps), com <b>R$ 3.322,96</b> de retorno bruto — ROAS de <b>0,66</b>. O ROAS vem <b>se recuperando</b> ao longo do mês (estava 0,57 no dia 11) e a <b>venda de order bumps disparou</b> (18 no mês). Entrega <b>constante</b>, sem paradas de conta. O ponto de atenção continua o mesmo: a operação ainda depende quase totalmente de dois criativos — o teste da leva nova (ADV13–ADV17) <b>não gerou vencedor ainda</b>.</p>
+
+    <div class="alert">
+      <div class="ic">📈</div>
+      <div>
+        <h3>ROAS em recuperação (0,66) e order bumps fortes — mas a renovação ainda não vingou</h3>
+        <p>Bom: o ROAS subiu de <b>0,57 (dia 11) → 0,66 (dia 18)</b> e os order bumps somaram <b>R$ 347</b> (18 vendas extras). A atenção: os 5 criativos novos (<a class="cr" href="https://drive.google.com/file/d/153Ux-mSHx4130KyNWPPQDssGEiggOxY_/view" target="_blank" rel="noopener">ADV13</a>–<a class="cr" href="https://drive.google.com/file/d/1CfXpvQxE6sJWWBxtHgY1fQAQcHcRyynj/view" target="_blank" rel="noopener">ADV17</a>) foram testados no começo do mês, ficaram <b>sem venda atribuída</b> e a verba voltou pro <a class="cr" href="https://drive.google.com/file/d/10bQNUfmtQ8XYngRhrdt9WBF5iHc53eqN/view" target="_blank" rel="noopener">ADV07</a> e <a class="cr" href="https://drive.google.com/file/d/11rQ9H9Dobq0sS68JRREt9DiEiNwi27DT/view" target="_blank" rel="noopener">ADV06</a>. <b>Precisa de uma próxima leva de criativos</b> (ou dar um teste mais decisivo aos novos) pra reduzir a dependência dos dois campeões.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="section-label">Visão consolidada</div>
+    <h2>Números do período</h2>
+    <p class="intro">Vendas apuradas <b>direto da planilha Kiwify</b> (somente pedidos <b>aprovados</b>; retorno = valor bruto). Investimento apurado <b>direto do Meta Ads</b>. Período parcial — dia 18 ainda em andamento.</p>
+
+    <div class="grid g4">
+      <div class="card"><small>Investimento</small><div class="num">R$ 5.068</div><div class="foot">Meta Ads · conta Iarla</div></div>
+      <div class="card"><small>Vendas aprovadas</small><div class="num">37</div><div class="foot">Consulta Rating (produto principal)</div></div>
+      <div class="card"><small>Retorno bruto</small><div class="num">R$ 3.323</div><div class="foot">+ 18 order bumps (R$ 347,40)</div></div>
+      <div class="card hi"><small>ROAS</small><div class="num">0,66</div><div class="foot">era 0,57 no dia 11 ▴</div></div>
+    </div>
+    <div class="grid g4" style="margin-top:16px">
+      <div class="card"><small>CPA</small><div class="num">R$ 136,97</div><div class="foot">custo por venda aprovada</div></div>
+      <div class="card"><small>Ticket médio</small><div class="num">R$ 79,90</div><div class="foot">produto de entrada</div></div>
+      <div class="card"><small>Resultado no período</small><div class="num" style="color:var(--vermelho)">− R$ 1.745</div><div class="foot"><span class="tag red">Captação de topo</span></div></div>
+      <div class="card"><small>Meio de pagamento</small><div class="num">84% PIX</div><div class="foot">31 PIX · 6 cartão</div></div>
+    </div>
+    <p class="note">Funil dos anúncios no período: <b>1.973 cliques</b> → <b>1.058 visitas à página</b> → <b>190 checkouts iniciados</b> → <b>37 vendas</b>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Vendas</div>
+    <h2>Aprovadas, por produto e por dia</h2>
+    <p class="intro">Produto principal = <b>Consulta Rating Bancário</b>. Os demais produtos entram como <b>order bump</b> da oferta. Considerado apenas o status <b>Aprovada</b> para o resultado.</p>
+
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Produto</th><th>Tipo</th><th class="r">Qtd aprovada</th><th class="r">Retorno bruto</th></tr></thead>
+      <tbody>
+        <tr class="win"><td><b>Consulta Rating Bancário</b></td><td>Produto principal</td><td class="r"><b>37</b></td><td class="r"><b>R$ 2.975,56</b></td></tr>
+        <tr><td>Order bumps (Boas Práticas · Cartão Black · Limite Nubank · Cartão negativado)</td><td>Order bump</td><td class="r">18</td><td class="r">R$ 347,40</td></tr>
+        <tr><td colspan="2"><b>Total aprovado (retorno)</b></td><td class="r"><b>55 itens</b></td><td class="r"><b>R$ 3.322,96</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 style="margin-top:38px;font-size:17px;font-weight:600">Vendas do produto principal por dia</h3>
+    <div class="chart">
+      <div class="bar"><div class="b" style="height:3%"></div><div class="v">0</div><div class="d">01</div></div>
+      <div class="bar"><div class="b" style="height:50%"></div><div class="v">2</div><div class="d">02</div></div>
+      <div class="bar"><div class="b" style="height:50%"></div><div class="v">2</div><div class="d">03</div></div>
+      <div class="bar"><div class="b" style="height:25%"></div><div class="v">1</div><div class="d">04</div></div>
+      <div class="bar"><div class="b" style="height:100%"></div><div class="v">4</div><div class="d">05</div></div>
+      <div class="bar"><div class="b" style="height:75%"></div><div class="v">3</div><div class="d">06</div></div>
+      <div class="bar"><div class="b" style="height:75%"></div><div class="v">3</div><div class="d">07</div></div>
+      <div class="bar"><div class="b" style="height:50%"></div><div class="v">2</div><div class="d">08</div></div>
+      <div class="bar"><div class="b" style="height:25%"></div><div class="v">1</div><div class="d">09</div></div>
+      <div class="bar"><div class="b" style="height:75%"></div><div class="v">3</div><div class="d">10</div></div>
+      <div class="bar"><div class="b" style="height:50%"></div><div class="v">2</div><div class="d">11</div></div>
+      <div class="bar"><div class="b" style="height:75%"></div><div class="v">3</div><div class="d">12</div></div>
+      <div class="bar"><div class="b" style="height:25%"></div><div class="v">1</div><div class="d">13</div></div>
+      <div class="bar"><div class="b" style="height:25%"></div><div class="v">1</div><div class="d">14</div></div>
+      <div class="bar"><div class="b" style="height:75%"></div><div class="v">3</div><div class="d">15</div></div>
+      <div class="bar"><div class="b" style="height:50%"></div><div class="v">2</div><div class="d">16</div></div>
+      <div class="bar"><div class="b" style="height:75%"></div><div class="v">3</div><div class="d">17</div></div>
+      <div class="bar"><div class="b" style="height:25%"></div><div class="v">1</div><div class="d">18*</div></div>
+    </div>
+    <p class="note">* Dia 18 é parcial (relatório gerado às 16:44). Entrega <b>constante e sem buracos</b> o mês inteiro.</p>
+
+    <h3 style="margin-top:40px;font-size:17px;font-weight:600">Outros status no período</h3>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card"><small>Aguardando pagamento</small><div class="num">9</div><div class="foot">R$ 719,10 em aberto — <span class="tag amber">recuperável (PIX)</span></div></div>
+      <div class="card"><small>Recusadas (cartão)</small><div class="num">4</div><div class="foot">R$ 338,86 — investigar checkout</div></div>
+      <div class="card"><small>Reembolsadas</small><div class="num">1</div><div class="foot">R$ 79,90</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="section-label">Criativos</div>
+    <h2>Quais anúncios geraram as vendas</h2>
+    <p class="intro">Cruzamento entre o <b>gasto por anúncio</b> (Meta Ads) e as <b>vendas atribuídas</b> (UTM na planilha Kiwify). Clique no nome do criativo para abrir o vídeo no Drive.</p>
+
+    <div class="crea">
+      <div class="box top">
+        <div class="rank">🥇 Campeão — voltou a render</div>
+        <h4><a class="cr" href="https://drive.google.com/file/d/10bQNUfmtQ8XYngRhrdt9WBF5iHc53eqN/view" target="_blank" rel="noopener">ADV07</a> — “Como saber seu rating bancário”</h4>
+        <div class="ang">Vídeo UGC · sticker de caixinha de pergunta · Reels/Stories</div>
+        <div class="mrow">
+          <div><small>Vendas</small><b>24</b></div>
+          <div><small>Investido</small><b>R$ 2.978</b></div>
+          <div><small>Retorno</small><b>R$ 1.918</b></div>
+          <div><small>CPA</small><b>R$ 124,07</b></div>
+          <div><small>ROAS</small><b>0,64</b></div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="rank">🥈 Escalado — perdeu eficiência</div>
+        <h4><a class="cr" href="https://drive.google.com/file/d/11rQ9H9Dobq0sS68JRREt9DiEiNwi27DT/view" target="_blank" rel="noopener">ADV06</a> — “Porque financiamento reprovado”</h4>
+        <div class="ang">Vídeo · ângulo de dor (crédito negado)</div>
+        <div class="mrow">
+          <div><small>Vendas</small><b>10</b></div>
+          <div><small>Investido</small><b>R$ 1.609</b></div>
+          <div><small>Retorno</small><b>R$ 799</b></div>
+          <div><small>CPA</small><b>R$ 160,90</b></div>
+          <div><small>ROAS</small><b>0,50</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Criativo</th><th>Ângulo</th><th class="r">Invest.</th><th class="r">Vendas</th><th class="r">Retorno</th><th class="r">ROAS</th></tr></thead>
+      <tbody>
+        <tr class="win"><td><a class="cr" href="https://drive.google.com/file/d/10bQNUfmtQ8XYngRhrdt9WBF5iHc53eqN/view" target="_blank" rel="noopener">ADV07</a></td><td>Como saber seu rating</td><td class="r">R$ 2.977,66</td><td class="r"><b>24</b></td><td class="r">R$ 1.917,60</td><td class="r"><b>0,64</b></td></tr>
+        <tr class="win"><td><a class="cr" href="https://drive.google.com/file/d/11rQ9H9Dobq0sS68JRREt9DiEiNwi27DT/view" target="_blank" rel="noopener">ADV06</a></td><td>Financiamento reprovado</td><td class="r">R$ 1.608,95</td><td class="r"><b>10</b></td><td class="r">R$ 799,00</td><td class="r"><b>0,50</b></td></tr>
+        <tr class="new"><td><a class="cr" href="https://drive.google.com/file/d/12MJtd6pvQzOps0exQw-lntzzVPBzuAYy/view" target="_blank" rel="noopener">ADV14</a> <span class="tag green">novo</span></td><td>O maior sinal de riqueza</td><td class="r">R$ 383,35</td><td class="r">0</td><td class="r">—</td><td class="r">sem venda</td></tr>
+        <tr class="new"><td><a class="cr" href="https://drive.google.com/file/d/1CfXpvQxE6sJWWBxtHgY1fQAQcHcRyynj/view" target="_blank" rel="noopener">ADV17</a> <span class="tag green">novo</span></td><td>Se você precisa de dinheiro</td><td class="r">R$ 39,96</td><td class="r">0</td><td class="r">—</td><td class="r">sem venda</td></tr>
+        <tr class="new"><td><a class="cr" href="https://drive.google.com/file/d/1KGDzDNP4PYroq42C1jWtV2-lOgdYBBU6/view" target="_blank" rel="noopener">ADV16</a> <span class="tag green">novo</span></td><td>Score alto significa que</td><td class="r">R$ 37,27</td><td class="r">0</td><td class="r">—</td><td class="r">sem venda</td></tr>
+        <tr class="new"><td><a class="cr" href="https://drive.google.com/file/d/1gm_R2tSwWQd5EnX_5m4dXMSGCAQal-Y4/view" target="_blank" rel="noopener">ADV15</a> <span class="tag green">novo</span></td><td>Ganhar 30k de patrimônio</td><td class="r">R$ 14,34</td><td class="r">0</td><td class="r">—</td><td class="r">sem venda</td></tr>
+        <tr class="new"><td><a class="cr" href="https://drive.google.com/file/d/153Ux-mSHx4130KyNWPPQDssGEiggOxY_/view" target="_blank" rel="noopener">ADV13</a> <span class="tag green">novo</span></td><td>Quem eu quero não me</td><td class="r">R$ 4,74</td><td class="r">0</td><td class="r">—</td><td class="r">sem venda</td></tr>
+        <tr><td><a class="cr" href="https://drive.google.com/file/d/1sasYEoHpumj-4J0453LHrMli2evYxLxL/view" target="_blank" rel="noopener">ADV09</a></td><td>Cansado de pedir crédito</td><td class="r">R$ 1,74</td><td class="r">0</td><td class="r">—</td><td class="r">0,00</td></tr>
+        <tr><td colspan="3" style="color:var(--cinza)">Vendas sem atribuição limpa de UTM</td><td class="r">3</td><td class="r">R$ 239,70</td><td class="r">—</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">ADV07 + ADV06 concentram 34 das 37 vendas (92%). A leva nova (ADV13–ADV17) somou ~R$ 480 em teste e não converteu — recomenda-se próxima remessa de criativos.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Leitura &amp; próximos passos</div>
+    <h2>O que fazer com esses dados</h2>
+    <div class="reads">
+      <div class="read warn"><div class="ic">🎬</div><div><h4>Nova remessa de criativos (a leva ADV13–17 não vingou)</h4><p>Os 5 novos gastaram ~R$ 480 sem venda atribuída. Produzir uma <b>próxima leva</b> com ângulos diferentes (prova social, aspiracional) e testar com verba decisiva — a operação precisa de um 3º criativo forte pra não depender só do ADV07/ADV06.</p></div></div>
+      <div class="read warn"><div class="ic">⚖</div><div><h4>Rebalancear ADV07 × ADV06</h4><p>Ao escalar, o <a class="cr" href="https://drive.google.com/file/d/11rQ9H9Dobq0sS68JRREt9DiEiNwi27DT/view" target="_blank" rel="noopener">ADV06</a> perdeu eficiência (ROAS 0,50 · CPA R$ 161), enquanto o <a class="cr" href="https://drive.google.com/file/d/10bQNUfmtQ8XYngRhrdt9WBF5iHc53eqN/view" target="_blank" rel="noopener">ADV07</a> segura melhor (0,64 · R$ 124). Devolver parte da verba pro ADV07 e segurar a mão no ADV06.</p></div></div>
+      <div class="read up"><div class="ic">↑</div><div><h4>Order bump está funcionando — manter/otimizar</h4><p>18 order bumps no mês (R$ 347) elevam o ticket sem custo de mídia extra. Vale testar novos bumps e a ordem deles no checkout pra puxar ainda mais o ticket médio.</p></div></div>
+      <div class="read act"><div class="ic">⟳</div><div><h4>Recuperar PIX pendente</h4><p>9 pedidos aguardando pagamento = R$ 719,10 em aberto. Régua de recuperação (WhatsApp/e-mail) converte parte disso em receita já rastreada.</p></div></div>
+      <div class="read act"><div class="ic">₪</div><div><h4>Fechar o ciclo com o back-end</h4><p>O produto de entrada (R$ 79,90) não fecha no ROAS sozinho — por definição. O resultado real depende da conversão dos compradores no produto principal pelo time comercial. O próximo relatório deve cruzar com o faturamento de back-end.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-label="BM Mídias">
+        <polygon points="50,4 90,27 90,73 50,96 10,73 10,27"></polygon>
+        <polygon points="50,33 65,59 35,59"></polygon>
+        <line x1="50" y1="4" x2="50" y2="33"></line><line x1="90" y1="73" x2="65" y2="59"></line>
+        <line x1="10" y1="73" x2="35" y2="59"></line><line x1="90" y1="27" x2="50" y2="33"></line>
+        <line x1="90" y1="27" x2="65" y2="59"></line><line x1="50" y1="96" x2="65" y2="59"></line>
+        <line x1="50" y1="96" x2="35" y2="59"></line><line x1="10" y1="27" x2="35" y2="59"></line>
+        <line x1="10" y1="27" x2="50" y2="33"></line>
+      </svg>
+      <span class="word"><b>BM</b><i class="bar"></i><span>MÍDIAS</span></span>
+    </div>
+    <p>Central de Estratégia e Resultados · Gestão de Tráfego Pago · rafael@britomidias.com.br</p>
+    <p class="disc">Relatório gerado em 18/08/2026, 16:44. Vendas apuradas direto da planilha Kiwify (Iarla Pugliesi), somente pedidos aprovados, valor bruto como retorno — período 01 a 18/08 (dia 18 parcial). Investimento e métricas de anúncio apurados direto do Meta Ads (conta CA - Anunciante - Iarla Pugliesi).</p>
+  </div>
+</footer>
+
+</body>
+</html>
